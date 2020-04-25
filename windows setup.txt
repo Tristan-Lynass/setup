@@ -1,0 +1,39 @@
+/** Install Chocolatey - Past in Admin PowerShell **/
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+/** General Purpose **/
+/** Manual Install: Adobe photoshop express, Greenshot **/
+choco install -y googlechrome 7zip.install vlc gimp audacity virtualbox qbittorrent tor-browser blender obs-studio hashtab geforce-experience everything ffmpeg
+
+/** Development **/
+/** Manual Install: NVM for windows **/
+choco install -y notepadplusplus.install jetbrainstoolbox postman sourcetree vscode python
+
+/** Gaming **/
+/** Manual Install: Epic Games Launcher, Battle.net **/
+choco install -y steam steamcmd discord.install twitch uplay origin
+
+/** Configuration **/
+Windows Explorer:
+	Show file extensions
+	Disable aero rendering
+	Show fidden files, folders and drives
+
+VSCode:
+	Install Arduino plugin
+
+
+/** Useful programs, but that I don't need right now **/
+* Recuva 						- Recover deleted files
+* HandBrake 					- Rip video from DVDs
+* DVD Flick 					- Writing video to DVD
+* GPU-Z by TechPowerUp 			- GPU Information
+* 3DMark 						- GPU Benchmarking & Stress test
+* DB Browser					- Browse SQLite db's
+* Bitvise						- Windows SSH Server - there might be better alternatives, investigate this
+* Windows Subsystem for Linux 	- Better than cygwin?
+* HxD							- Hex editor
+* WinDirStat					- Windows space utilisation visualiser
+* Sublime Text					- Considering this to replace NPP
+* GraphicsMagick				- Graphics CLI
+* nmap							- Networking CLI
