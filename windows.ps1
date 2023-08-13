@@ -9,7 +9,7 @@ New-ItemProperty -Path "HKCU:\AppEvents\Schemes" -Name "(Default)" -Value ".None
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 $general = @(
-"googlechrome",
+"googlechrome", # requires logging in with all accounts
 "7zip.install",
 "vlc",
 "gimp",
@@ -18,37 +18,37 @@ $general = @(
 "blender",
 "obs-studio",
 "hashtab",
-"geforce-experience", # Install drivers
+"geforce-experience", # Install drivers #  HAD ISSUES
 "everything",
 "ffmpeg",
 "greenshot",
 "spotify",
-"winscp",
-"docker-desktop",
+"winscp", # Configure remotes
+"docker-desktop", # HAD ISSUES
 "imageglass", # disable auto update with this config in igconfig.xml <Item key="AutoUpdate" value="0" />
 "windirstat"
 )
 
 $development = @(
-"nvm.install", # Install latest node version
+"nvm.install",
 "notepadplusplus.install",
 "jetbrainstoolbox", # IntelliJ, Webstorm, Ultimate, &/or Android Studio
 "postman",
 "vscode", # Install extensions (Arduino)
 "python",
-"postgresql", # Set main password = 'password'
-"git",
-"microsoft-windows-terminal", # Configure
+"postgresql --params '/Password:password'",
+"git --params '/NoShellIntegration'", # Disables "Git GUI Here" and "Git Bash Here" entries in context menus
+"microsoft-windows-terminal", # FIXME
 "javadecompiler-gui"
 )
 
 $gaming = @(
-"steam",
-"discord.install",
-"twitch",
-"uplay",
-"origin",
-"epicgameslauncher"
+"steam", # FIXME
+"discord.install", # FIXME
+"twitch", # FIXME
+"ubisoft-connect", #FIXME
+"ea-app", #FIXME
+"epicgameslauncher" #FIXME
 )
 
 $utilities = @(
@@ -62,3 +62,6 @@ $utilities = @(
 )
 
 choco install -y $general $development $gaming
+
+nvm install latest
+nvm use latest
